@@ -1,0 +1,44 @@
+; Copyright (c) 1999-2000 Trek Technology (S) Pte Ltd
+
+[Version]
+Signature="$CHICAGO$"
+Class=hdc
+ClassGUID={4d36e96a-e325-11ce-bfc1-08002be10318}
+Provider=%TREK%
+
+[Manufacturer]
+%TREK%=TREK
+
+[SourceDisksNames]
+1="ThumbDrive Installation Disk","",1
+
+[TREK]
+%TREK\CHILD00.DeviceDesc%=MP3STOR,TREK\TREKCHILD11
+
+[MP3STOR]
+Copyfiles=MP3STOR.Files
+AddReg=MP3STOR_AddReg
+
+[MP3STOR.Files]
+TREKTH.MPD
+
+;******************************************
+;Addreg Section
+
+[MP3STOR_AddReg]
+HKR,,DriverDesc,,"ThumbDrive Device"
+HKR,,DevLoader,,*IOS
+HKR,,PortDriver,,TREKTH.mpd
+
+[DestinationDirs]
+DefaultDestDir = 12             ; IOSubsys directory
+
+[SourceDisksFiles]
+TREKTH.mpd=1
+
+;*******************************************************************
+;User-Visible Strings
+
+[Strings]
+TREK="TREK"
+TREK\CHILD00.DeviceDesc="ThumbDrive Device"
